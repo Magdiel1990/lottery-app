@@ -12,13 +12,16 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-        <title>Lot-App</title>
+        <!-- Estilo CSS-->
+        <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+
+        <title>Lottap</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                <i class="bi bi-bar-chart-line"></i> Lot-App
+                <i class="bi bi-bar-chart-line"></i> Lottap
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLotoApp" aria-controls="navbarLotoApp" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -66,7 +69,10 @@
                 </div>
             </div>
         </nav>
+        <div class="container my-4">
 
-        @yield("content")
+            @yield("content")
+
+        </div>
     </body>
 </html>
