@@ -25,12 +25,29 @@
             </thead>
             <tbody>
             @forelse($results as $result)
-                    <tr>
-                        <td>{{ $result->draw_date->format('Y-m-d') }}</td>
-                        <td>
-                            {{ implode(', ', $result->numbers) }}
-                        </td>
-                    </tr>
+                <tr>
+                    <td style="color: #34495e; font-weight: bold;">
+                        {{ $result->draw_date->format('Y-m-d') }}
+                    </td>
+
+                    <td style="color: #2c3e50; font-weight: bold;">
+                        {{ implode(' - ', $result->numbers) }}
+                    </td>
+
+                    <td>
+                        <a href="#" class="btn btn-sm btn-primary">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+
+                        <form action="#" method="POST" class="d-inline" onsubmit="return confirm('¿Deseas eliminar este resultado?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
                 @empty
                     <tr>
                         <td colspan="3" class="text-center">No hay resultados!</td>
