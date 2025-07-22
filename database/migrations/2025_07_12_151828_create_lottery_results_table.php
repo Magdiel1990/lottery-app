@@ -16,6 +16,8 @@ return new class extends Migration
             $table->date('draw_date');
             $table->json('numbers');
             $table->timestamps();
+
+            $table -> unique([/*draw_date, */'numbers']);
         });
     }
 

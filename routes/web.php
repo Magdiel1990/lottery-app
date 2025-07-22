@@ -6,3 +6,5 @@ use App\Http\Controllers\LotteryResultController;
 Route::get("/", [LotteryResultController::class,"index"]);
 
 Route::get("/agregar", [LotteryResultController::class,"create"])->name("resultados.agregar");
+
+Route::post("/store", [LotteryResultController::class,"store"])->name("resultados.store");
