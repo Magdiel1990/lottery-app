@@ -1,6 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
+
 <div class="container mt-4">
     <div class="card shadow-sm w-50 mx-auto">
         <div class="card-header bg-primary text-white">

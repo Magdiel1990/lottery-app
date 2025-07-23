@@ -46,13 +46,13 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <i class="bi bi-cloud-arrow-down"></i> Importar Datos
+                            <i class="bi bi-gear"></i> Configuración
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <i class="bi bi-gear"></i> Configuración
+                            <i class="bi bi-cloud-arrow-down"></i> Acerca
                         </a>
                     </li>
                 </ul>
