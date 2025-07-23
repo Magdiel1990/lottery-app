@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LotteryResultController;
 
-Route::get("/", [LotteryResultController::class,"index"]);
+Route::get("/", [LotteryResultController::class,"index"]) -> name("loto.index");
 
-Route::get("/agregar", [LotteryResultController::class,"create"])->name("resultados.agregar");
+Route::get("/loto/agregar", [LotteryResultController::class,"create"])->name("loto.agregar");
 
-Route::post("/store", [LotteryResultController::class,"store"])->name("resultados.store");
+Route::post("/loto/store", [LotteryResultController::class,"store"])->name("loto.store");
+
+Route::get("/loto/editar/{lotteryResult}", [LotteryResultController::class,"edit"])->name("loto.editar");
+
+Route::post("/loto/update", [LotteryResultController::class,"update"])->name("loto.update");

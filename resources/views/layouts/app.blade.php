@@ -58,7 +58,7 @@
                 </ul>
 
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar fecha..." aria-label="Buscar">
+                    <input class="form-control me-2" type="date" aria-label="Fecha">
                     <button class="btn btn-light" type="submit"><i class="bi bi-search"></i></button>
                 </form>
 

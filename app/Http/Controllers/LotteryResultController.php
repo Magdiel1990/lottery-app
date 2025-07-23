@@ -83,7 +83,7 @@ class LotteryResultController extends Controller
             'numbers' => $numbers,
         ]);
 
-        return redirect()->route('resultados.agregar')->with('success', '¡Resultado guardado!');
+        return redirect()->route('loto.agregar')->with('success', '¡Resultado guardado!');
     }
 
 
@@ -100,7 +100,7 @@ class LotteryResultController extends Controller
      */
     public function edit(LotteryResult $lotteryResult)
     {
-        //
+        return view('lottery_results.edit', compact('lotteryResult'));
     }
 
     /**
