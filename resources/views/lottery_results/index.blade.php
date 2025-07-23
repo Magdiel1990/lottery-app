@@ -3,7 +3,7 @@
 @section("content")
 
     <div class="text-end">
-        <a href="{{ route('loto.agregar') }}" class="btn btn-success">
+        <a href="{{ route('loto.agregar') }}" class="btn btn-success" id="agregar_btn">
             <i class="bi bi-plus-circle"></i>
         </a>
     </div>

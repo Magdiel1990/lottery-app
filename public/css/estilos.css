@@ -6,6 +6,9 @@ body {
     background-color: #f8f9fa; /* color claro */
     margin: 0;
     padding: 0;
+    background: #fa0000;
+background: radial-gradient(circle, rgba(250, 0, 0, 1) 1%, rgba(250, 238, 0, 1) 5%, rgba(250, 0, 112, 1) 11%, rgba(221, 10, 30, 1) 40%, rgba(0, 89, 255, 1) 100%);
+
 }
 
 /* Títulos */
@@ -66,7 +69,7 @@ table {
 
 .table th {
     font-weight: 600;
-    background-color: #e3f2fd;
+    background-color: #3097e1;
     color: #212529;
 }
 
@@ -78,7 +81,7 @@ table {
 .titulo-principal {
     font-size: 2rem;
     font-weight: bold;
-    color: #0d6efd;
+    color: #fd0d0d;
     text-align: center;
     margin-top: 1rem;
     margin-bottom: 2rem;
@@ -95,4 +98,23 @@ table th, table td {
 
 .btn-sm i {
     font-size: 1rem;
+}
+
+/* Estilos para el botón de agregar */
+#agregar_btn {
+    background-color: #0e0000; /* Rojo elegante */
+    color: rgb(246, 246, 250);
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+/*estilo para el contenedor del contenido*/
+/*#content {
+    background: #fa0000;
+    background: radial-gradient(circle, rgba(250, 0, 0, 1) 1%, rgba(250, 238, 0, 1) 5%, rgba(250, 0, 112, 1) 11%, rgba(221, 10, 30, 1) 40%, rgba(0, 89, 255, 1) 100%);
+}*/
+thead th {
+    background-color: #0192fa;
+    color: #ff0000;
 }
