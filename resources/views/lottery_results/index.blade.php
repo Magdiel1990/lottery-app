@@ -74,5 +74,9 @@
                 @endforelse
             </tbody>
         </table>
+        <!--Paginación-->
+        <div class="d-flex justify-content-center">
+            {{ $results->appends(['per_page' => $perPage])->links('pagination::bootstrap-4') }}
+        </div>
     </div>
 @endsection
