@@ -22,7 +22,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="{{ route('loto.index') }}">
                 <i class="bi bi-bar-chart-line"></i>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLotoApp" aria-controls="navbarLotoApp" aria-expanded="false" aria-label="Toggle navigation">
