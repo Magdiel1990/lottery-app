@@ -13,7 +13,7 @@ class LotteryResultController extends Controller
     public function index(Request $request)
     {
         $perPage = $request->get('per_page', 10); //Valor por defecto: 10
-        $results = LotteryResult::orderBy("draw_date","desc")->paginate(10);
+        $results = LotteryResult::orderBy("draw_date","desc")->paginate($perPage);
 
         return view("lottery_results.index", compact("results", "perPage"));
 
