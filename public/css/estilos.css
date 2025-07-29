@@ -98,8 +98,8 @@ table th, table td {
 }
 /*Estilos de las bolas*/
 .bola {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     background-color: #f3aa0c;
     color: white;
@@ -107,7 +107,7 @@ table th, table td {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s;
 }
