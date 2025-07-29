@@ -11,4 +11,4 @@ Route::post("/loto/store", [LotteryResultController::class,"store"])->name("loto
 
 Route::get("/loto/editar/{lotteryResult}", [LotteryResultController::class,"edit"])->name("loto.editar");
 
-Route::post("/loto/update", [LotteryResultController::class,"update"])->name("loto.update");
+Route::put("/loto/update/{lotteryResult}", [LotteryResultController::class,"update"])->name("loto.update");
