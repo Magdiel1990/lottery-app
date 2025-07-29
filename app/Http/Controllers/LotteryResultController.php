@@ -10,12 +10,12 @@ class LotteryResultController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $results = LotteryResult::orderBy("draw_date","desc")->get();
+        $perPage = $request->get('per_page', 10); //Valor por defecto: 10
+        $results = LotteryResult::orderBy("draw_date","desc")->paginate(10);
 
-        return view("lottery_results/index", compact("results"));
+        return view("lottery_results.index", compact("results", "perPage"));
 
     }
 
