@@ -12,3 +12,5 @@ Route::post("/loto/store", [LotteryResultController::class,"store"])->name("loto
 Route::get("/loto/editar/{lotteryResult}", [LotteryResultController::class,"edit"])->name("loto.editar");
 
 Route::put("/loto/update/{lotteryResult}", [LotteryResultController::class,"update"])->name("loto.update");
+
+Route::delete("/loto/delete/{lotteryResult}", [LotteryResultController::class,"delete"]) -> name("loto.delete");

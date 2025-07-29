@@ -35,11 +35,11 @@
                     </td>
 
                     <td>
-                        <a href="{{ url('/loto/editar/' . $result->id) }}" class="btn btn-sm btn-primary">
+                        <a href="{{ route('loto.editar', $result->id) }}" class="btn btn-sm btn-primary">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
 
-                        <form action="#" method="POST" class="d-inline" onsubmit="return confirm('¿Deseas eliminar este resultado?');">
+                        <form action="{{ route('loto.delete', $result->id)}}" method="POST" class="d-inline" onsubmit="return confirm('¿Deseas eliminar esta jugada?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">
