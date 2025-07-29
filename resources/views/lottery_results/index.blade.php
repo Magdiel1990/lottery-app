@@ -35,7 +35,7 @@
                     </td>
 
                     <td style="color: #34495e; font-weight: bold;">
-                        {{ $result->draw_date->format('Y-m-d') }}
+                        {{ $result->draw_date->format('d-M-Y') }}
                     </td>
 
                     <td>
