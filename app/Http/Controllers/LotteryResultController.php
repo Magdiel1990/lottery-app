@@ -108,7 +108,24 @@ class LotteryResultController extends Controller
      */
     public function update(Request $request, LotteryResult $lotteryResult)
     {
-        //
+        //Validar datos del formulario
+        $request->validate([
+            'draw_date' => 'required|date',
+            'numbers' => 'required|string',
+        ]);
+
+        // Procesar los números: convertir el string en array de números enteros
+        $numbers = array_map('intval', array_map('trim', explode(',', $request->input('numbers'))));
+
+        // Actualizar los campos del modelo
+        $lotteryResult->draw_date = $request->input('draw_date');
+        $lotteryResult->numbers = $numbers;
+
+        // Guardar los cambios
+        $lotteryResult->save();
+
+        // Redirigir con mensaje de éxito
+        return redirect()->route('loto.index')->with('success', 'La jugada ha sido actualizada correctamente.');
     }
 
     /**
