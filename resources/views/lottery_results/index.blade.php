@@ -26,12 +26,16 @@
             <tbody>
             @forelse($results as $result)
                 <tr>
-                    <td style="color: #34495e; font-weight: bold;">
-                        {{ $result->draw_date->format('Y-m-d') }}
+                   <td>
+                        <div class="d-flex flex-wrap gap-2">
+                            @foreach ($result->numbers as $number)
+                                <div class="bola">{{ $number }}</div>
+                            @endforeach
+                        </div>
                     </td>
 
-                    <td style="color: #2c3e50; font-weight: bold;">
-                        {{ implode(' - ', $result->numbers) }}
+                    <td style="color: #34495e; font-weight: bold;">
+                        {{ $result->draw_date->format('Y-m-d') }}
                     </td>
 
                     <td>

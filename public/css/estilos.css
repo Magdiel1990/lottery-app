@@ -96,3 +96,22 @@ table th, table td {
 .btn-sm i {
     font-size: 1rem;
 }
+/*Estilos de las bolas*/
+.bola {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f3aa0c;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.bola:hover {
+    transform: scale(1.1);
+}
