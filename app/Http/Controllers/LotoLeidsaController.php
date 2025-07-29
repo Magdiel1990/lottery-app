@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LotteryResult;
+use App\Models\LotoLeidsa;
 use Illuminate\Http\Request;
 
-class LotteryResultController extends Controller
+class LotoLeidsaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class LotteryResultController extends Controller
     public function index(Request $request)
     {
         $perPage = $request->get('per_page', 10); //Valor por defecto: 10
-        $query = LotteryResult::orderBy("draw_date","desc");
+        $query = LotoLeidsa::orderBy("draw_date","desc");
 
         //Segregacion por fecha
         if($request->filled('fecha')) {
@@ -23,7 +23,7 @@ class LotteryResultController extends Controller
         //Paginacion
         $results = $query->paginate($perPage)->withQueryString();
 
-        return view("lottery_results.index", compact("results", "perPage"));
+        return view("lottery_results.index_loto", compact("results", "perPage"));
 
     }
 
@@ -40,7 +40,7 @@ class LotteryResultController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-  public function store(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'draw_date' => 'required|date',
@@ -71,7 +71,7 @@ class LotteryResultController extends Controller
         }
 
         // Validar que no exista ya esa jugada en la base de datos
-        $exists = LotteryResult::where('draw_date', $request->input('draw_date'))
+        $exists = LotoLeidsa::where('draw_date', $request->input('draw_date'))
             ->whereJsonContains('numbers', $numbers[0]) // Primer número como entrada base
             ->get()
             ->filter(function ($result) use ($numbers) {
@@ -86,7 +86,7 @@ class LotteryResultController extends Controller
         }
 
         // Guardar el resultado
-        LotteryResult::create([
+        LotoLeidsa::create([
             'draw_date' => $request->input('draw_date'),
             'numbers' => $numbers,
         ]);
@@ -98,7 +98,7 @@ class LotteryResultController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(LotteryResult $lotteryResult)
+    public function show(LotoLeidsa $LotoLeidsa)
     {
         //
     }
@@ -106,15 +106,15 @@ class LotteryResultController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(LotteryResult $lotteryResult)
+    public function edit(LotoLeidsa $LotoLeidsa)
     {
-        return view('lottery_results.edit', compact('lotteryResult'));
+        return view('lottery_results.edit', compact('LotoLeidsa'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, LotteryResult $lotteryResult)
+    public function update(Request $request, LotoLeidsa $LotoLeidsa)
     {
         //Validar datos del formulario
         $request->validate([
@@ -126,11 +126,11 @@ class LotteryResultController extends Controller
         $numbers = array_map('intval', array_map('trim', explode(',', $request->input('numbers'))));
 
         // Actualizar los campos del modelo
-        $lotteryResult->draw_date = $request->input('draw_date');
-        $lotteryResult->numbers = $numbers;
+        $LotoLeidsa->draw_date = $request->input('draw_date');
+        $LotoLeidsa->numbers = $numbers;
 
         // Guardar los cambios
-        $lotteryResult->save();
+        $LotoLeidsa->save();
 
         // Redirigir con mensaje de éxito
         return redirect()->route('loto.index')->with('success', 'La jugada ha sido actualizada correctamente.');
@@ -139,10 +139,10 @@ class LotteryResultController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(LotteryResult $lotteryResult)
+    public function destroy(LotoLeidsa $LotoLeidsa)
     {
         //Eliminar jugadas
-        $lotteryResult -> delete();
+        $LotoLeidsa -> delete();
 
         return redirect()->route('loto.index')->with('success', 'Resultado eliminado correctamente.');
 

@@ -1,16 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LotteryResultController;
+use App\Http\Controllers\LoteriaController;
+use App\Http\Controllers\LotoLeidsaController;
 
-Route::get("/", [LotteryResultController::class,"index"]) -> name("loto.index");
+Route::get("/", [LoteriaController::class,"index"]) -> name("index");
 
-Route::get("/loto/agregar", [LotteryResultController::class,"create"])->name("loto.agregar");
+Route::get("/loto", [LotoLeidsaController::class,"index"]) -> name("loto.index");
 
-Route::post("/loto/store", [LotteryResultController::class,"store"])->name("loto.store");
+Route::get("/loto/agregar", [LotoLeidsaController::class,"create"])->name("loto.agregar");
 
-Route::get("/loto/editar/{lotteryResult}", [LotteryResultController::class,"edit"])->name("loto.editar");
+Route::post("/loto/store", [LotoLeidsaController::class,"store"])->name("loto.store");
 
-Route::put("/loto/update/{lotteryResult}", [LotteryResultController::class,"update"])->name("loto.update");
+Route::get("/loto/editar/{lotteryResult}", [LotoLeidsaController::class,"edit"])->name("loto.editar");
 
-Route::delete("/loto/delete/{lotteryResult}", [LotteryResultController::class,"destroy"]) -> name("loto.delete");
+Route::put("/loto/update/{lotteryResult}", [LotoLeidsaController::class,"update"])->name("loto.update");
+
+Route::delete("/loto/delete/{lotteryResult}", [LotoLeidsaController::class,"destroy"]) -> name("loto.delete");
