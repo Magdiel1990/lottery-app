@@ -133,6 +133,10 @@ class LotteryResultController extends Controller
      */
     public function destroy(LotteryResult $lotteryResult)
     {
-        //
+        //Eliminar jugadas
+        $lotteryResult -> delete();
+
+        return redirect()->route('loto.index')->with('success', 'Resultado eliminado correctamente.');
+
     }
 }
