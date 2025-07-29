@@ -26,11 +26,11 @@
             <tbody>
             @forelse($results as $result)
                 <tr>
-                   <td>
+                    <td>
                         <div class="d-flex flex-wrap gap-2">
-                            @foreach ($result->numbers as $number)
-                                <div class="bola">{{ $number }}</div>
-                            @endforeach
+                        @foreach ($result->numbers as $number)
+                            <div class="bola">{{ $number }}</div>
+                        @endforeach
                         </div>
                     </td>
 
@@ -51,6 +51,7 @@
                             </button>
                         </form>
                     </td>
+
                 </tr>
                 @empty
                     <tr>
