@@ -1,5 +1,7 @@
 <?php
 
+// app/Http/Controllers/LoteriaController.php
+
 namespace App\Http\Controllers;
 
 use App\Models\Loteria;
@@ -7,61 +9,74 @@ use Illuminate\Http\Request;
 
 class LoteriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(Request $request )
+    public function index()
     {
-        //
         $loterias = Loteria::all();
-        return view("index", compact("loterias"));
+        return view('loterias.index', compact('loterias'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('loterias.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        // Validar datos
+        $request->validate([
+            'nombre' => 'required|string|unique:loterias,nombre',
+            'minValue' => 'required|integer|min:1',
+            'maxValue' => 'required|integer|gt:minValue',
+            'total' => 'required|integer|min:1|max:20',
+        ]);
+
+        // Crear la lotería
+        Loteria::create([
+            'nombre' => $request->input('nombre'),
+            'minValue' => $request->input('minValue'),
+            'maxValue' => $request->input('maxValue'),
+            'total' => $request->input('total'),
+            'descripcion' => null, // opcional
+        ]);
+
+        return redirect()->route('configuracion.index')->with('success', 'Lotería agregada correctamente.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Loteria $loteria)
     {
-        //
+        return view('loterias.show', compact('loteria'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Loteria $loteria)
     {
-        //
+        return view('loterias.edit', compact('loteria'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Loteria $loteria)
     {
-        //
+        // Validación
+        $request->validate([
+            'nombre' => 'required|string|unique:loterias,nombre,' . $loteria->id,
+            'minValue' => 'required|integer|min:1',
+            'maxValue' => 'required|integer|gt:minValue',
+            'total' => 'required|integer|min:1|max:20',
+        ]);
+
+        // Actualización
+        $loteria->update([
+            'nombre' => $request->input('nombre'),
+            'minValue' => $request->input('minValue'),
+            'maxValue' => $request->input('maxValue'),
+            'total' => $request->input('total'),
+        ]);
+
+        return redirect()->route('configuracion.index')->with('success', 'Lotería actualizada correctamente.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Loteria $loteria)
     {
-        //
+        $loteria->delete();
+
+        return redirect()->route('configuracion.index')->with('success', 'Lotería eliminada correctamente.');
     }
 }

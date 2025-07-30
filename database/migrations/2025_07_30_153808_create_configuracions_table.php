@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('loto_leidsas', function (Blueprint $table) {
+        Schema::create('configuracions', function (Blueprint $table) {
             $table->id();
-            $table->date('draw_date');
-            $table->json('numbers');
-            $table->unsignedBigInteger('lottery_id');
+            $table->string('clave')->unique();
+            $table->string('valor');
             $table->timestamps();
-            $table->foreign('lottery_id')->references('id')->on('loterias')->onDelete('cascade');
         });
     }
 
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('loto_leidsas');
+        Schema::dropIfExists('configuracions');
     }
 };

@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('loterias', function (Blueprint $table) {
             $table->id();
-            $table-> string("nombre")->unique();
+            $table->string("nombre")->unique();
+            $table->text('descripcion')->nullable();
+            $table->unsignedBigInteger('total');
+            $table->unsignedBigInteger('maxValue');
+            $table->unsignedBigInteger('minValue');
             $table->timestamps();
         });
     }
