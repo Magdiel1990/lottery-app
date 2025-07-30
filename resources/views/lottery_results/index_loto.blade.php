@@ -7,7 +7,7 @@
         <form method="GET" class="mb-3">
             <label for="per_page">Ver:</label>
             <select name="per_page" id="per_page" onchange="this.form.submit()">
-                @foreach([5, 10, 25, 50, 100] as $size)
+                @foreach([5, 10, 25, 50] as $size)
                     <option value="{{ $size }}" {{ $perPage == $size ? 'selected' : '' }}>{{ $size }}</option>
                 @endforeach
             </select>
