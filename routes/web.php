@@ -22,7 +22,7 @@ Route::get('/loteria/{id}', [LoteriaController::class, 'show'])->name('loterias.
 Route::post('/loteria', [LoteriaController::class, 'store'])->name('loterias.store');
 Route::get('/loteria/editar', [LoteriaController::class, 'edit'])->name('loterias.edit');
 Route::post('/loteria/update', [LoteriaController::class, 'update'])->name('loterias.update');
-Route::delete('/loterias/{loteria}', [LoteriaController::class, 'destroy'])->name('loterias.destroy');
+Route::delete('/loteria/{loteria}', [LoteriaController::class, 'destroy'])->name('loterias.destroy');
 
 
 Route::prefix('loto')->name('loto.')->group(function() {

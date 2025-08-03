@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-    <h2 class="my-4 text-center">Loterías Disponibles</h2>
+    <h2 class="my-2 text-center">Loterías Disponibles</h2>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4 my-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4 my-2">
         @foreach($loterias as $loteria)
         <div class="col">
             <div class="card h-100">

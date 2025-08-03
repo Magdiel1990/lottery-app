@@ -45,6 +45,11 @@
                     <input type="range" class="form-range" id="total" name="total" min="1" max="80" value="6" oninput="document.getElementById('totalLabel').innerText = this.value">
                 </div>
 
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Breve descripción de la lotería..."></textarea>
+                </div>
+
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">
                         <i class="bi bi-save"></i> Guardar

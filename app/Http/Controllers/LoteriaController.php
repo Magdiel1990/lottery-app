@@ -27,7 +27,8 @@ class LoteriaController extends Controller
             'nombre' => 'required|string|unique:loterias,nombre',
             'minValue' => 'required|integer|min:1',
             'maxValue' => 'required|integer|gt:minValue',
-            'total' => 'required|integer|min:1|max:20',
+            'total' => 'required|integer|min:1|max:100',
+            'descripcion' => 'nullable|string|max:1000',
         ]);
 
         // Crear la lotería
@@ -36,7 +37,7 @@ class LoteriaController extends Controller
             'minValue' => $request->input('minValue'),
             'maxValue' => $request->input('maxValue'),
             'total' => $request->input('total'),
-            'descripcion' => null, // opcional
+            'descripcion' => $request->input('descripcion'), // opcional
         ]);
 
         return redirect()->route('configuracion.index')->with('success', 'Lotería agregada correctamente.');
