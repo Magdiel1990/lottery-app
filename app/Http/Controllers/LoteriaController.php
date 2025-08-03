@@ -9,11 +9,11 @@ use Illuminate\Http\Request;
 
 class LoteriaController extends Controller
 {
-    public function index()
+ /*   public function index()
     {
         $loterias = Loteria::all();
         return view('loterias.index', compact('loterias'));
-    }
+    } */
 
     public function create()
     {
@@ -43,8 +43,9 @@ class LoteriaController extends Controller
         return redirect()->route('configuracion.index')->with('success', 'Lotería agregada correctamente.');
     }
 
-    public function show(Loteria $loteria)
+    public function show($id)
     {
+        $loteria = Loteria::findOrFail($id);
         return view('loterias.show', compact('loteria'));
     }
 

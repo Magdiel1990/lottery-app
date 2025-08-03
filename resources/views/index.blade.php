@@ -21,7 +21,7 @@
                 </div>
                 <div class="card-footer text-center">
                     <a href="{{ route('loterias.show', $loteria->id) }}" class="btn btn-primary w-100">
-                        Entrar
+                        Analizar
                     </a>
                 </div>
             </div>
