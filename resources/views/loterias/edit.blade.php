@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="d-flex justify-content-center align-items-start" style="min-height: 80vh;">
     <div class="card shadow-lg p-4 w-100" style="max-width: 600px;">
         <h3 class="text-center mb-4 text-primary">
@@ -32,7 +33,7 @@
                 <label for="minValue" class="form-label">
                     Valor mínimo permitido: <span id="minValueLabel">{{ $loteria->minValue }}</span>
                 </label>
-                <input type="range" class="form-range" id="minValue" name="minValue" min="1" max="100" value="{{ $loteria->minValue }}" oninput="document.getElementById('minValueLabel').innerText = this.value">
+                <input type="range" class="form-range" id="minValue" name="minValue" min="1" max="100" value="{{ old('minValue', $loteria->minValue) }}" oninput="document.getElementById('minValueLabel').innerText = this.value">
             </div>
 
             {{-- Valor máximo --}}
@@ -40,7 +41,7 @@
                 <label for="maxValue" class="form-label">
                     Valor máximo permitido: <span id="maxValueLabel">{{ $loteria->maxValue }}</span>
                 </label>
-                <input type="range" class="form-range" id="maxValue" name="maxValue" min="1" max="100" value="{{ $loteria->maxValue }}" oninput="document.getElementById('maxValueLabel').innerText = this.value">
+                <input type="range" class="form-range" id="maxValue" name="maxValue" min="1" max="100" value="{{ old('maxValue', $loteria->maxValue) }}" oninput="document.getElementById('maxValueLabel').innerText = this.value">
             </div>
 
             {{-- Total de bolos --}}
@@ -48,7 +49,7 @@
                 <label for="total" class="form-label">
                     Total de bolos a jugar: <span id="totalLabel">{{ $loteria->total }}</span>
                 </label>
-                <input type="range" class="form-range" id="total" name="total" min="1" max="20" value="{{ $loteria->total }}" oninput="document.getElementById('totalLabel').innerText = this.value">
+                <input type="range" class="form-range" id="total" name="total" min="1" max="20"  value="{{ old('total', $loteria->total) }}" oninput="document.getElementById('totalLabel').innerText = this.value">
             </div>
 
             {{-- Descripción --}}

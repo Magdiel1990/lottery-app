@@ -49,8 +49,9 @@ class LoteriaController extends Controller
         return view('loterias.show', compact('loteria'));
     }
 
-    public function edit(Loteria $loteria)
+    public function edit($id)
     {
+        $loteria = Loteria::findOrFail($id);
         return view('loterias.edit', compact('loteria'));
     }
 
