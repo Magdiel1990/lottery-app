@@ -28,14 +28,14 @@
                     <label for="minValue" class="form-label">
                         Valor mínimo permitido: <span id="minValueLabel">1</span>
                     </label>
-                    <input type="range" class="form-range" id="minValue" name="minValue" min="1" max="100" value="1" oninput="document.getElementById('minValueLabel').innerText = this.value">
+                    <input type="range" class="form-range" id="minValue" name="minValue" min="1" max="50" value="1" oninput="document.getElementById('minValueLabel').innerText = this.value">
                 </div>
 
                 <div class="mb-3">
                     <label for="maxValue" class="form-label">
-                        Valor máximo permitido: <span id="maxValueLabel">40</span>
+                        Valor máximo permitido: <span id="maxValueLabel">100</span>
                     </label>
-                    <input type="range" class="form-range" id="maxValue" name="maxValue" min="1" max="100" value="40" oninput="document.getElementById('maxValueLabel').innerText = this.value">
+                    <input type="range" class="form-range" id="maxValue" name="maxValue" min="10" max="100" value="40" oninput="document.getElementById('maxValueLabel').innerText = this.value">
                 </div>
 
                 <div class="mb-4">
