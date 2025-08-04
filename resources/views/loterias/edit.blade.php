@@ -51,6 +51,12 @@
                 <input type="range" class="form-range" id="total" name="total" min="1" max="20" value="{{ $loteria->total }}" oninput="document.getElementById('totalLabel').innerText = this.value">
             </div>
 
+            {{-- Descripción --}}
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Breve descripción de la lotería...">{{ old('descripcion', $loteria->descripcion) }}</textarea>
+            </div>
+
             <div class="d-grid mb-3">
                 <button type="submit" class="btn btn-success">
                     <i class="bi bi-save"></i> Actualizar Lotería
