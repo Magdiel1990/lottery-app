@@ -55,17 +55,18 @@ class LoteriaController extends Controller
         return view('loterias.edit', compact('loteria'));
     }
 
-    public function update(Request $request, Loteria $loteria)
+    public function update(Request $request, $id)
     {
         // Validación
         $request->validate([
-            'nombre' => 'required|string|unique:loterias,nombre,' . $loteria->id,
+            'nombre' => 'required|string|unique:loterias,nombre,' . $id,
             'minValue' => 'required|integer|min:1',
             'maxValue' => 'required|integer|gt:minValue',
             'total' => 'required|integer|min:1|max:100',
             'descripcion' => 'nullable|string|max:1000',
         ]);
 
+        $loteria = Loteria::findOrFail($id);
         // Actualización
         $loteria->update([
             'nombre' => $request->input('nombre'),
