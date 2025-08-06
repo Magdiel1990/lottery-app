@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class LotoLeidsa extends Model
 {
     //
-    protected $fillable = ['draw_date', 'numbers', 'lotteryid'];
+    protected $fillable = ['loteria_id', 'draw_date', 'numbers'];
 
     protected $casts = [
         'numbers'=> 'array',
         'draw_date'=> 'date',
-        'lotteryid' => 'lotteryid',
+        'lottery_id' => 'lottery_id',
     ];
 }

@@ -23,7 +23,7 @@ class LotoLeidsaController extends Controller
         //Paginacion
         $results = $query->paginate($perPage)->withQueryString();
 
-        return view("lottery_results.index_loto", compact("results", "perPage"));
+        return view("loterias.show", compact("results", "perPage"));
 
     }
 
