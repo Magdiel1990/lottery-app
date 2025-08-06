@@ -12,20 +12,22 @@ class LotoLeidsaController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        //
-        return view("lottery_results.create");
+        // Buscar la lotería
+        $loteria = Loteria::findOrFail($id);
+
+        return view("lottery_results.create", compact("loteria"));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $request->validate([
             'draw_date' => 'required|date',
-            'numbers' => 'required|string'
+            'numbers' => 'required|string',
         ]);
 
         // Limpiar y validar los números
@@ -35,24 +37,28 @@ class LotoLeidsaController extends Controller
             ->map(fn($num) => (int) $num)
             ->toArray();
 
+        //Conseguir los datos de la loteria con ese id
+        $loterias = Loteria::findOrFail($id);
+
         // Validar cantidad de números
-        if (count($numbers) !== 6) {
+        if (count($numbers) !== $loterias->total) {
             return redirect()->back()->withInput()->withErrors([
-                'numbers' => 'Debes ingresar exactamente 6 números separados por comas.'
+                'numbers' => 'Debes ingresar exactamente '. $loterias->total .' números separados por comas.'
             ]);
         }
 
         // Validar que estén dentro del rango permitido (ejemplo: 1 a 38)
         foreach ($numbers as $num) {
-            if ($num < 1 || $num > 40) {
+            if ($num < $loterias->minValue || $num > $loterias->maxValue) {
                 return redirect()->back()->withInput()->withErrors([
-                    'numbers' => 'Todos los números deben estar entre 1 y 38.'
+                    'numbers' => 'Todos los números deben estar entre '. $loterias->minValue .' y '. $loterias->maxValue .'.'
                 ]);
             }
         }
 
         // Validar que no exista ya esa jugada en la base de datos
-        $exists = LotoLeidsa::where('draw_date', $request->input('draw_date'))
+        $exists = LotoLeidsa::where('lottery_id', $id)
+            ->where('draw_date', $request->input('draw_date'))
             ->whereJsonContains('numbers', $numbers[0]) // Primer número como entrada base
             ->get()
             ->filter(function ($result) use ($numbers) {
@@ -70,9 +76,10 @@ class LotoLeidsaController extends Controller
         LotoLeidsa::create([
             'draw_date' => $request->input('draw_date'),
             'numbers' => $numbers,
+            'lottery_id' => $id,
         ]);
 
-        return redirect()->route('loto.agregar')->with('success', '¡Resultado guardado!');
+        return redirect()->route('loto.agregar', $id)->with('success', '¡Resultado guardado!');
     }
 
 

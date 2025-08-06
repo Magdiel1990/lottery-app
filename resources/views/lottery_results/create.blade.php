@@ -7,7 +7,7 @@
             <h5 class="mb-0"><i class="bi bi-pencil-square me-2"></i> Agregar nuevo resultado</h5>
         </div>
         <div class="card-body">
-            <form action="{{ route ('loto.store')}}" method="POST">
+            <form action="{{ route ('loto.store', $loteria->id)}}" method="POST">
                 @csrf
 
                 <div class="mb-3">

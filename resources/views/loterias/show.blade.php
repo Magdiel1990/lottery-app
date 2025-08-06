@@ -17,7 +17,7 @@
 
     <!--Botón de agregar-->
     <div class="text-end">
-        <a href="{{ route('loto.agregar') }}" class="btn btn-success">
+        <a href="{{ route('loto.agregar', $loteria->id) }}" class="btn btn-success">
             <i class="bi bi-plus-circle"></i>
         </a>
     </div>
