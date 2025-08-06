@@ -12,6 +12,6 @@
         <li class="list-group-item"><strong>Descripción:</strong> {{ $loteria->descripcion ?? 'Sin descripción' }}</li>
     </ul>
 
-    <a href="{{ route('loterias.index') }}" class="btn btn-secondary">← Volver</a>
+    <a href="{{ route('home') }}" class="btn btn-secondary">← Volver</a>
 </div>
 @endsection
