@@ -82,7 +82,7 @@
 
                     <!-- Columna 2 -->
                     <div class="col-md-6 mb-3">
-                        <h6>Contacto</h6>
+                        <h4>Contacto</h4>
                         <h5 class="mb-2"><i class="bi bi-envelope"></i> magdielmagdiel1@gmail.com</h5>
                         <h5><i class="bi bi-github"></i> <a href="https://github.com/Magdiel1990" class="text-light text-decoration-none">GitHub</a></h5>
                     </div>
