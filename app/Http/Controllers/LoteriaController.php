@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Loteria;
 use Illuminate\Http\Request;
-use App\Models\LotoLeidsa;
 
 class LoteriaController extends Controller
 {
@@ -41,29 +40,6 @@ class LoteriaController extends Controller
         ]);
 
         return redirect()->route('configuracion.index')->with('success', 'Lotería agregada correctamente.');
-    }
-
-    public function show(Request $request, $id)
-    {
-        // Buscar la lotería
-        $loteria = Loteria::findOrFail($id);
-
-        // Configurar paginación (por defecto 10 resultados por página)
-        $perPage = $request->get('per_page', 10);
-
-        // Iniciar consulta filtrando por el ID de la lotería
-        $query = LotoLeidsa::where('lottery_id', $id)->orderBy("draw_date", "desc");
-
-        // Filtrar por fecha si se proporciona
-        if ($request->filled('fecha')) {
-            $query->whereDate('draw_date', $request->input('fecha'));
-        }
-
-        // Ejecutar paginación
-        $results = $query->paginate($perPage)->withQueryString();
-
-        // Retornar la vista con los datos
-        return view("loterias.show", compact("results", "perPage", "loteria"));
     }
 
     public function edit($id)

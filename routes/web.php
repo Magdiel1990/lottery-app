@@ -18,7 +18,7 @@ Route::post('/configuracion', [ConfiguracionController::class, 'update'])->name(
 
 
 // Vista individual de resultados por lotería
-Route::get('/loteria/{id}', [LoteriaController::class, 'show'])->name('loterias.show');
+Route::get('/loteria/{id}', [LotoLeidsaController::class, 'show'])->name('loterias.show');
 Route::post('/loteria', [LoteriaController::class, 'store'])->name('loterias.store');
 Route::get('/loteria/editar/{id}', [LoteriaController::class, 'edit'])->name('loterias.edit');
 //Route::post('/loteria/update', [LoteriaController::class, 'update'])->name('loterias.update');

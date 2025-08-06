@@ -4,28 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\LotoLeidsa;
 use Illuminate\Http\Request;
+use App\Models\Loteria;
 
 class LotoLeidsaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(Request $request)
-    {
-        $perPage = $request->get('per_page', 10); //Valor por defecto: 10
-        $query = LotoLeidsa::orderBy("draw_date","desc");
-
-        //Segregacion por fecha
-        if($request->filled('fecha')) {
-            $query->whereDate('draw_date', $request->input('fecha'));
-        }
-
-        //Paginacion
-        $results = $query->paginate($perPage)->withQueryString();
-
-        return view("loterias.show", compact("results", "perPage"));
-
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -98,9 +80,27 @@ class LotoLeidsaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(LotoLeidsa $LotoLeidsa)
+    public function show(Request $request, $id)
     {
-        //
+        // Buscar la lotería
+        $loteria = Loteria::findOrFail($id);
+
+        // Configurar paginación (por defecto 10 resultados por página)
+        $perPage = $request->get('per_page', 10);
+
+        // Iniciar consulta filtrando por el ID de la lotería
+        $query = LotoLeidsa::where('lottery_id', $id)->orderBy("draw_date", "desc");
+
+        // Filtrar por fecha si se proporciona
+        if ($request->filled('fecha')) {
+            $query->whereDate('draw_date', $request->input('fecha'));
+        }
+
+        // Ejecutar paginación
+        $results = $query->paginate($perPage)->withQueryString();
+
+        // Retornar la vista con los datos
+        return view("loterias.show", compact("results", "perPage", "loteria"));
     }
 
     /**
