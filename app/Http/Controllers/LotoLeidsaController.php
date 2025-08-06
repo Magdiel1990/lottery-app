@@ -15,8 +15,7 @@ class LotoLeidsaController extends Controller
     public function create()
     {
         //
-        return view("lottery_results/create");
-
+        return view("lottery_results.create");
     }
 
     /**
