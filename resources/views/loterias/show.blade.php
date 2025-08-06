@@ -14,7 +14,6 @@
         </select>
         resultados por página
     </form>
-
     <!-- Botones de agregar y regresar -->
     <div class="d-flex gap-1">
         <a href="{{ route('loto.agregar', $loteria->id) }}" class="btn btn-success">
