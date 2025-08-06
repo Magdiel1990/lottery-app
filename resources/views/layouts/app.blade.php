@@ -20,80 +20,12 @@
         <title>Lottap</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route('home') }}">
-                <i class="bi bi-bar-chart-line"></i>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLotoApp" aria-controls="navbarLotoApp" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarLotoApp">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-calendar-check"></i> Resultados
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-graph-up"></i> Análisis
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-cloud-arrow-down"></i> Importar Datos
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('configuracion.index') }}">
-                                Configuración
-                            </a>
-                        </li>
-                    </ul>
-                    @if (Route::currentRouteName() === 'loterias.show')
-                        <form class="d-flex" method="GET" action="{{ route('loterias.show', $loteria->id) }}" role="search">
-                            <input class="form-control me-2" name="fecha" type="date" value="{{ request('fecha') }}">
-                            <button class="btn btn-light" type="submit"><i class="bi bi-search"></i></button>
-                        </form>
-                    @endif
-                </div>
-            </div>
-        </nav>
+        @include('partials.navbar')
 
         <main class="container my-4">
-
             @yield("content")
-
         </main>
-        <footer class="bg-primary text-light p-4">
-            <div class="container">
-                <div class="d-flex row justify-content-center">
-                    <!-- Columna 1 -->
-                    <div class="col-md-6 mb-3">
-                        <h5 class="text-uppercase">Lottap</h5>
-                        <h6 class="mb-0">Sistema para gestión y análisis de resultados de loterías.</h6>
-                    </div>
 
-                    <!-- Columna 2 -->
-                    <div class="col-md-6 mb-3">
-                        <h4>Contacto</h4>
-                        <h5 class="mb-2"><i class="bi bi-envelope"></i> magdielmagdiel1@gmail.com</h5>
-                        <h5><i class="bi bi-github"></i> <a href="https://github.com/Magdiel1990" class="text-light text-decoration-none">GitHub</a></h5>
-                    </div>
-                </div>
-
-                <hr class="border-top border-secondary">
-
-                <div class="text-center">
-                    <small>&copy; {{ date('Y') }} Proyecto Lotería. Todos los derechos reservados.</small>
-                </div>
-            </div>
-        </footer>
+        @include('partials.footer')
     </body>
 </html>
