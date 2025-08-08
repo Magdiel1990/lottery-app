@@ -112,15 +112,18 @@ class LotoLeidsaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(LotoLeidsa $LotoLeidsa)
+    public function edit($id)
     {
-        return view('lottery_results.edit', compact('LotoLeidsa'));
+        // Buscar la lotería
+        $loteria = LotoLeidsa::findOrFail($id);
+
+        return view('lottery_results.edit', compact('loteria'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, LotoLeidsa $LotoLeidsa)
+    public function update(Request $request, LotoLeidsa $LotoLeidsa, $id)
     {
         //Validar datos del formulario
         $request->validate([
@@ -131,15 +134,17 @@ class LotoLeidsaController extends Controller
         // Procesar los números: convertir el string en array de números enteros
         $numbers = array_map('intval', array_map('trim', explode(',', $request->input('numbers'))));
 
+        $loteria = LotoLeidsa::findOrFail($id);
+
         // Actualizar los campos del modelo
-        $LotoLeidsa->draw_date = $request->input('draw_date');
-        $LotoLeidsa->numbers = $numbers;
+        $loteria->draw_date = $request->input('draw_date');
+        $loteria->numbers = $numbers;
 
         // Guardar los cambios
-        $LotoLeidsa->save();
+        $loteria->save();
 
         // Redirigir con mensaje de éxito
-        return redirect()->route('loto.index')->with('success', 'La jugada ha sido actualizada correctamente.');
+        return redirect()->route('loto.editar', $id)->with('success', 'La jugada ha sido actualizada correctamente.');
     }
 
     /**

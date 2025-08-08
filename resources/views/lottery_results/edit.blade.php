@@ -6,18 +6,18 @@
     <div class="card shadow p-4 w-100" style="max-width: 500px;">
         <h2 class="text-center mb-4">Editar Jugada</h2>
 
-        <form action="{{ route('loto.update', $lotteryResult->id) }}" method="POST">
+        <form action="{{ route('loto.update', $loteria->id) }}" method="POST">
             @csrf
             @method('PUT')
 
             <div class="mb-3">
                 <label for="draw_date" class="form-label">Fecha del Sorteo</label>
-                <input type="date" name="draw_date" id="draw_date" class="form-control" value="{{ $lotteryResult->draw_date->format('Y-m-d') }}">
+                <input type="date" name="draw_date" id="draw_date" class="form-control" value="{{ $loteria->draw_date->format('Y-m-d') }}">
             </div>
 
             <div class="mb-3">
                 <label for="numbers" class="form-label">Números (separados por comas)</label>
-                <input type="text" name="numbers" id="numbers" class="form-control" value="{{ implode(',', $lotteryResult->numbers) }}">
+                <input type="text" name="numbers" id="numbers" class="form-control" value="{{ implode(',', $loteria->numbers) }}">
             </div>
 
             <div class="d-flex justify-content-between">
