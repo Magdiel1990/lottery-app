@@ -1,7 +1,20 @@
 @extends("layouts.app")
 
 @section("content")
+
 <div class="container mt-5">
+<!-- Mensaje de error-->
+    @if ($errors->any())
+        <div class="d-flex justify-content-center mt-3 ">
+            <div class="alert alert-danger alert-dismissible fade show p-2 text-center w-auto" role="alert">
+                @foreach ($errors->all() as $error)
+                    <p class="mb-0 p-2 me-4">{{ $error }}</p>
+                @endforeach
+
+                <button type="button" class="btn-close ms-2" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    @endif
     <div class="card shadow-sm w-50 mx-auto">
         <div class="card-header bg-primary text-white">
             <h5 class="mb-0"><i class="bi bi-pencil-square me-2"></i> Agregar nuevo resultado</h5>
