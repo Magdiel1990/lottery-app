@@ -22,7 +22,7 @@
 
             <div class="d-flex justify-content-between">
                 <button type="submit" class="btn btn-success w-45">Actualizar</button>
-                <a href="{{ route('loterias.show', $lottery_id) }}" class="btn btn-outline-secondary w-45">Cancelar</a>
+                <a href="{{ route('loterias.show', $lotoleidsa) }}" class="btn btn-outline-secondary w-45">Cancelar</a>
             </div>
         </form>
     </div>

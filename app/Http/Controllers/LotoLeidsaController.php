@@ -152,12 +152,12 @@ class LotoLeidsaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(LotoLeidsa $LotoLeidsa)
+    public function destroy(LotoLeidsa $LotoLeidsa, $id)
     {
         //Eliminar jugadas
         $LotoLeidsa -> delete();
 
-        return redirect()->route('loto.index')->with('success', 'Resultado eliminado correctamente.');
+        return redirect()->route('loterias.show', $id)->with('success', 'Resultado eliminado correctamente.');
 
     }
 }

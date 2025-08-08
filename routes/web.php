@@ -32,5 +32,5 @@ Route::prefix('loto')->name('loto.')->group(function() {
     Route::post("/store/{id}", [LotoLeidsaController::class,"store"])->name("store");
     Route::get("/editar/{id}", [LotoLeidsaController::class,"edit"])->name("editar");
     Route::put("/update/{id}", [LotoLeidsaController::class,"update"])->name("update");
-    Route::delete("/delete/{id}", [LotoLeidsaController::class,"destroy"]) -> name("delete");
+    Route::delete("/delete/{lotteryResult}", [LotoLeidsaController::class,"destroy"]) -> name("delete");
 });
