@@ -114,10 +114,12 @@ class LotoLeidsaController extends Controller
      */
     public function edit($id)
     {
-        // Buscar la lotería
-        $loteria = LotoLeidsa::findOrFail($id);
+        // Buscar la jugada
+        $lotoleidsa = LotoLeidsa::findOrFail($id);
+        //Id de la loteria a la que pertenece la jugada
+        $lottery_id = $lotoleidsa->lottery_id;
 
-        return view('lottery_results.edit', compact('loteria'));
+        return view('lottery_results.edit', compact('lotoleidsa', 'lottery_id'));
     }
 
     /**
