@@ -12,15 +12,26 @@
                     <h5 class="card-title text-center text-danger">
                         {{ ucfirst($loteria->nombre) }}
                     </h5>
-                    <ul class="card-text">
-                        <li>Total de bolos: {{ $loteria->total }}</li>
-                        <li>Mínimo valor: {{ $loteria->minValue }}</li>
-                        <li>Máximo valor: {{ $loteria->maxValue }}</li>
+                    <ul class="list-group list-group-flush small">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>Total de bolos</span>
+                            <span class="fw-bold">{{ $loteria->total }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>Mínimo valor</span>
+                            <span class="fw-bold text-primary">{{ $loteria->minValue }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>Máximo valor</span>
+                            <span class="fw-bold text-danger">{{ $loteria->maxValue }}</span>
+                        </li>
                     </ul>
-                    <p class="card-text mx-2">{{ $loteria->descripcion }}</p>
+                    <p class="card-text m-2 p-3 bg-light rounded shadow-sm border-start border-4 border-primary">
+                        <em>{{ $loteria->descripcion }}</em>
+                    </p>
                 </div>
                 <div class="card-footer text-center">
-                    <a href="{{ route('loterias.show', $loteria->id) }}" class="btn btn-primary w-100">
+                    <a href="{{ route('loterias.show', $loteria->id) }}" class="btn btn-primary w-100 mt-2">
                         Analizar
                     </a>
                 </div>
