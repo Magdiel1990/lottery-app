@@ -24,10 +24,6 @@
 
     <h1 class="text-center fs-2 my-2 py-2">Resultados Loto</h1>
 
-    @if(session('success'))
-        <p style="color: green;">{{ session ('success')}}</p>
-    @endif
-
     <div class="table-responsive">
         <table class="table table-hover align-middle table-bordered table-striped shadow-sm">
             <thead class="table-primary">

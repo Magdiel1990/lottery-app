@@ -9,13 +9,6 @@
                 <i class="bi bi-gear-fill"></i> Configuración de Lotería
             </h3>
 
-            @if(session('success'))
-                <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-                </div>
-            @endif
-
             <form method="POST" action="{{ route('loterias.store') }}">
                 @csrf
 

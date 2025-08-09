@@ -25,13 +25,6 @@
     </div>
 </div>
 
-@if(session('success'))
-    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-    </div>
-@endif
-
 <h2 class="my-3 text-center">{{ $loteria->nombre }}</h2>
 
 <div class="table-responsive">

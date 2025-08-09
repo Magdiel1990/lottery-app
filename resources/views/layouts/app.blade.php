@@ -23,6 +23,10 @@
         @include('partials.navbar')
 
         <main class="container my-4">
+            <!-- Caja de Mensaje -->
+            @include('partials.alert')
+
+            <!-- Contenido -->
             @yield("content")
         </main>
 
