@@ -18,7 +18,7 @@
 
                 <div class="mb-3">
                     <label for="numbers" class="form-label">Jugada (separada por coma)</label>
-                    <input type="text" name="numbers" class="form-control" placeholder="12,23,34,45,56,67" required>
+                    <input type="text" name="numbers" class="form-control" placeholder="12,23,34,..." required>
                 </div>
 
                 <div class="row">
