@@ -8,12 +8,6 @@ use Illuminate\Http\Request;
 
 class LoteriaController extends Controller
 {
- /*   public function index()
-    {
-        $loterias = Loteria::all();
-        return view('loterias.index', compact('loterias'));
-    } */
-
     public function create()
     {
         return view('loterias.create');

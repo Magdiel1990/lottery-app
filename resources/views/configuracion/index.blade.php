@@ -43,10 +43,13 @@
                     <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Breve descripción de la lotería..."></textarea>
                 </div>
 
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary mx-2">
                         <i class="bi bi-save"></i> Guardar
                     </button>
+                    <a href="{{ url()->previous() }}" class="btn btn-secondary mx-2">
+                        <i class="bi bi-arrow-left-circle"></i> Regresar
+                    </a>
                 </div>
             </form>
         </div>
