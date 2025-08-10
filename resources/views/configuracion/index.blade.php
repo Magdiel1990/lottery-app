@@ -26,7 +26,7 @@
 
                 <div class="mb-3">
                     <label for="maxValue" class="form-label">
-                        Valor máximo permitido: <span id="maxValueLabel">100</span>
+                        Valor máximo permitido: <span id="maxValueLabel">40</span>
                     </label>
                     <input type="range" class="form-range" id="maxValue" name="maxValue" min="10" max="100" value="40" oninput="document.getElementById('maxValueLabel').innerText = this.value">
                 </div>
