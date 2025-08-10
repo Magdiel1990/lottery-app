@@ -1,29 +1,38 @@
-
-<footer class="bg-primary text-light p-4">
+<footer class="footer-modern bg-primary bg-gradient text-light pt-5 pb-3">
     <div class="container">
-        <div class="d-flex row justify-content-center">
+        <div class="row gy-4">
             <!-- Columna 1 -->
             <div class="col-md-6 mb-3">
-                <h5 class="text-uppercase">Lottap</h5>
-                <h6 class="mb-0">Sistema para gestión y análisis de resultados de loterías.</h6>
+                <h4 class="fw-bold">Lottap</h4>
+                <p class="footer-desc mb-0">
+                    Sistema para gestión y análisis de resultados de loterías.
+                </p>
             </div>
 
             <!-- Columna 2 -->
             <div class="col-md-6 mb-3">
-                <h4>Contacto</h4>
-                <h5 class="mb-2"><i class="bi bi-envelope"></i> magdielmagdiel1@gmail.com</h5>
-                <h5><i class="bi bi-github"></i> <a href="https://github.com/Magdiel1990" class="text-light text-decoration-none">GitHub</a></h5>
+                <h5 class="fw-semibold">Contacto</h5>
+                <ul class="list-unstyled footer-links">
+                    <li>
+                        <i class="bi bi-envelope me-2"></i>
+                        <a href="mailto:magdielmagdiel1@gmail.com">magdielmagdiel1@gmail.com</a>
+                    </li>
+                    <li>
+                        <i class="bi bi-github me-2"></i>
+                        <a href="https://github.com/Magdiel1990" target="_blank">GitHub</a>
+                    </li>
+                </ul>
             </div>
         </div>
 
-        <hr class="border-top border-secondary">
+        <hr class="border-light opacity-25 mt-4 mb-3">
 
-        <div class="text-center">
-            <small>&copy; {{ date('Y') }} Proyecto Lotería. Todos los derechos reservados.</small>
+        <!-- Créditos -->
+        <div class="text-center small footer-copy">
+            &copy; {{ date('Y') }} Proyecto Lotería — Todos los derechos reservados.
         </div>
     </div>
 </footer>
 
-<!-- Bootstrao JS-->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-

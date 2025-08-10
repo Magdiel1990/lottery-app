@@ -130,7 +130,42 @@ table th, table td {
 }
 
 
-/*footer*/
-footer {
-    margin-top: 20%;
+/* FOOTER */
+.footer-modern {
+    background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+    margin-top: 15%;
+}
+
+.footer-modern h4,
+.footer-modern h5 {
+    margin-bottom: 0.5rem;
+}
+
+.footer-modern .footer-desc {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+}
+
+.footer-modern .footer-links li {
+    margin-bottom: 0.4rem;
+}
+
+.footer-modern .footer-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-modern .footer-links a:hover {
+    color: #fff;
+    padding-left: 4px;
+}
+
+.footer-modern .footer-copy {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+footer hr {
+    border-color: rgba(255, 255, 255, 0.2);
 }
