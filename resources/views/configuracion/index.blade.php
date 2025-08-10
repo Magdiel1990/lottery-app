@@ -6,7 +6,7 @@
         {{-- Formulario de configuración --}}
         <div class="card shadow-lg p-4 mb-4">
             <h3 class="text-center mb-4 text-primary">
-                <i class="bi bi-gear-fill"></i> Configuración de Lotería
+                <i class="bi bi-gear-fill"></i> Nueva Lotería
             </h3>
 
             <form method="POST" action="{{ route('loterias.store') }}">
