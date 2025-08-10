@@ -4,8 +4,8 @@
 <div class="container">
     <h2 class="my-2 text-center">Loterías Disponibles</h2>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4 my-2">
-        @foreach($loterias as $loteria)
+    <div class="row g-4 my-2">
+        @forelse($loterias as $loteria)
         <div class="col">
             <div class="card h-100">
                 <div class="card-body d-flex flex-column justify-content-between">
@@ -37,7 +37,15 @@
                 </div>
             </div>
         </div>
-        @endforeach
+        @empty
+        <div class="d-flex justify-content-center">
+            <div class="alert alert-warning text-center shadow-sm w-100" style="max-width: 600px;" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                Aún no hay loterías disponibles.
+            </div>
+        </div>
+
+        @endforelse
     </div>
 </div>
 @endsection
