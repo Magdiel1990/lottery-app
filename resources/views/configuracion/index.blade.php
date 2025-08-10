@@ -19,23 +19,23 @@
 
                 <div class="mb-3">
                     <label for="minValue" class="form-label">
-                        Valor mínimo permitido: <span id="minValueLabel">1</span>
+                        Valor mínimo permitido: <span id="minValueLabel">25</span>
                     </label>
-                    <input type="range" class="form-range" id="minValue" name="minValue" min="1" max="50" value="1" oninput="document.getElementById('minValueLabel').innerText = this.value">
+                    <input type="range" class="form-range" id="minValue" name="minValue" min="1" max="50" value="25" oninput="document.getElementById('minValueLabel').innerText = this.value">
                 </div>
 
                 <div class="mb-3">
                     <label for="maxValue" class="form-label">
-                        Valor máximo permitido: <span id="maxValueLabel">40</span>
+                        Valor máximo permitido: <span id="maxValueLabel">50</span>
                     </label>
-                    <input type="range" class="form-range" id="maxValue" name="maxValue" min="10" max="100" value="40" oninput="document.getElementById('maxValueLabel').innerText = this.value">
+                    <input type="range" class="form-range" id="maxValue" name="maxValue" min="10" max="100" value="50" oninput="document.getElementById('maxValueLabel').innerText = this.value">
                 </div>
 
                 <div class="mb-4">
                     <label for="total" class="form-label">
-                        Total de bolos: <span id="totalLabel">6</span>
+                        Total de bolos: <span id="totalLabel">40</span>
                     </label>
-                    <input type="range" class="form-range" id="total" name="total" min="1" max="80" value="6" oninput="document.getElementById('totalLabel').innerText = this.value">
+                    <input type="range" class="form-range" id="total" name="total" min="1" max="80" value="40" oninput="document.getElementById('totalLabel').innerText = this.value">
                 </div>
 
                 <div class="mb-3">
