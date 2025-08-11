@@ -14,12 +14,18 @@
         </select>
         resultados por página
     </form>
-    <!-- Botones de agregar y regresar -->
-    <div class="d-flex gap-1">
-        <a href="{{ route('loto.agregar', $loteria->id) }}" class="btn btn-success">
+
+    <!-- Botones de agregar, analizar y regresar -->
+    <div class="d-flex gap-2">
+        <a href="#" class="btn btn-icon btn-primary" title="Analizar">
+            <i class="bi bi-graph-up"></i>
+        </a>
+
+        <a href="{{ route('loto.agregar', $loteria->id) }}" class="btn btn-icon btn-success" title="Agregar">
             <i class="bi bi-plus-circle"></i>
         </a>
-        <a href="{{ route('home') }}" class="btn btn-secondary">
+
+        <a href="{{ route('home') }}" class="btn btn-icon btn-secondary" title="Regresar">
             <i class="bi bi-arrow-left-circle"></i>
         </a>
     </div>
