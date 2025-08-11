@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="numbers" class="form-label">Jugada (separada por coma)</label>
+                    <label for="numbers" class="form-label">Jugada (separada por coma) <span class="text-danger">[{{ $loteria->total }} bolos de {{ $loteria->minValue }} al {{ $loteria->maxValue }}]</span></label>
                     <input type="text" name="numbers" class="form-control" placeholder="12,23,34,..." required>
                 </div>
 
