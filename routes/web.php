@@ -21,6 +21,7 @@ Route::post('/configuracion', [ConfiguracionController::class, 'update'])->name(
 Route::get('/loteria/{id}', [LotoLeidsaController::class, 'show'])->name('loterias.show');
 Route::post('/loteria', [LoteriaController::class, 'store'])->name('loterias.store');
 Route::get('/loteria/editar/{id}', [LoteriaController::class, 'edit'])->name('loterias.edit');
+Route::get('/loteria/analizar/{id}', [LoteriaController::class, 'analize'])->name('loteria.analizar');
 //Route::post('/loteria/update', [LoteriaController::class, 'update'])->name('loterias.update');
 Route::delete('/loteria/{loteria}', [LoteriaController::class, 'destroy'])->name('loterias.destroy');
 Route::put('/loterias/{id}', [LoteriaController::class, 'update'])->name('loterias.update');
