@@ -27,7 +27,6 @@ Route::put('/loterias/{id}', [LoteriaController::class, 'update'])->name('loteri
 
 
 Route::prefix('loto')->name('loto.')->group(function() {
- //   Route::get("/", [LotoLeidsaController::class,"index"]) -> name("index");
     Route::get("/agregar/{id}", [LotoLeidsaController::class,"create"])->name("agregar");
     Route::post("/store/{id}", [LotoLeidsaController::class,"store"])->name("store");
     Route::get("/editar/{id}", [LotoLeidsaController::class,"edit"])->name("editar");
