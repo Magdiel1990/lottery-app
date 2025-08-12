@@ -39,8 +39,8 @@
                     </a>
                 </li>
             </ul>
-            @if (Route::currentRouteName() === 'loterias.show')
-                <form class="d-flex" method="GET" action="{{ route('loterias.show', $loteria->id) }}" role="search">
+            @if (Route::currentRouteName() === 'loteria.show')
+                <form class="d-flex" method="GET" action="{{ route('loteria.show', $loteria->id) }}" role="search">
                     <input class="form-control me-2" name="fecha" type="date" value="{{ request('fecha') }}">
                     <button class="btn btn-light" type="submit"><i class="bi bi-search"></i></button>
                 </form>

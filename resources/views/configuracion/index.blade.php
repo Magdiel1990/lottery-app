@@ -9,7 +9,7 @@
                 <i class="bi bi-gear-fill"></i> Nueva Lotería
             </h3>
 
-            <form method="POST" action="{{ route('loterias.store') }}">
+            <form method="POST" action="{{ route('loteria.store') }}">
                 @csrf
 
                 <div class="mb-3">
@@ -80,11 +80,11 @@
                                     <td>{{ $loteria->maxValue }}</td>
                                     <td>{{ $loteria->total }}</td>
                                     <td class="text-end">
-                                        <a href="{{ route('loterias.edit', $loteria->id) }}" class="btn btn-sm btn-warning me-2">
+                                        <a href="{{ route('loteria.edit', $loteria->id) }}" class="btn btn-sm btn-warning me-2">
                                             <i class="bi bi-pencil"></i> Editar
                                         </a>
 
-                                        <form action="{{ route('loterias.destroy', $loteria->id) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Eliminar esta lotería?')">
+                                        <form action="{{ route('loteria.destroy', $loteria->id) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Eliminar esta lotería?')">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-sm btn-danger">

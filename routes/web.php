@@ -18,14 +18,14 @@ Route::post('/configuracion', [ConfiguracionController::class, 'update'])->name(
 
 
 // Vista individual de resultados por lotería
-Route::get('/loteria/{id}', [LotoLeidsaController::class, 'show'])->name('loterias.show');
-Route::post('/loteria', [LoteriaController::class, 'store'])->name('loterias.store');
-Route::get('/loteria/editar/{id}', [LoteriaController::class, 'edit'])->name('loterias.edit');
-Route::get('/loteria/analizar/{id}', [LoteriaController::class, 'analize'])->name('loteria.analizar');
-//Route::post('/loteria/update', [LoteriaController::class, 'update'])->name('loterias.update');
-Route::delete('/loteria/{loteria}', [LoteriaController::class, 'destroy'])->name('loterias.destroy');
-Route::put('/loterias/{id}', [LoteriaController::class, 'update'])->name('loterias.update');
-
+Route::prefix('loteria')->name('loteria.')->group(function() {
+    Route::get('/{id}', [LotoLeidsaController::class, 'show'])->name('show');
+    Route::post('/', [LoteriaController::class, 'store'])->name('store');
+    Route::get('/editar/{id}', [LoteriaController::class, 'edit'])->name('edit');
+    Route::get('/analizar/{id}', [LoteriaController::class, 'analize'])->name('analizar');
+    Route::delete('/{loteria}', [LoteriaController::class, 'destroy'])->name('destroy');
+    Route::put('/{id}', [LoteriaController::class, 'update'])->name('update');
+});
 
 Route::prefix('loto')->name('loto.')->group(function() {
     Route::get("/agregar/{id}", [LotoLeidsaController::class,"create"])->name("agregar");

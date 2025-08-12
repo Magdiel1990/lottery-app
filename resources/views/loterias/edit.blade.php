@@ -8,7 +8,7 @@
             <i class="bi bi-pencil-square"></i> Editar Lotería
         </h3>
 
-        <form action="{{ route('loterias.update', $loteria->id) }}" method="POST">
+        <form action="{{ route('loteria.update', $loteria->id) }}" method="POST">
             @csrf
             @method('PUT')
 

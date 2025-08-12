@@ -23,7 +23,7 @@
 
                 <div class="row">
                     <div class="col text-start">
-                        <a href="{{ route('loterias.show', $loteria->id) }}" class="btn btn-secondary">
+                        <a href="{{ route('loteria.show', $loteria->id) }}" class="btn btn-secondary">
                             <i class="bi bi-arrow-left-circle"></i> Regresar
                         </a>
                     </div>
