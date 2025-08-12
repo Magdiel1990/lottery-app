@@ -10,12 +10,13 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Configuración (solo para admins)
 //Route::middleware(['auth', 'admin'])->group(function () {
-Route::get('/configuracion', [ConfiguracionController::class, 'index'])->name('configuracion.index');
 // Otras rutas de configuración...
 //});
 
-Route::post('/configuracion', [ConfiguracionController::class, 'update'])->name('configuracion.update');
-
+Route::prefix('configuracion')->name('configuracion.')->group(function() {
+    Route::get('/', [ConfiguracionController::class, 'index'])->name('index');
+    Route::post('/', [ConfiguracionController::class, 'update'])->name('update');
+});
 
 // Vista individual de resultados por lotería
 Route::prefix('loteria')->name('loteria.')->group(function() {
