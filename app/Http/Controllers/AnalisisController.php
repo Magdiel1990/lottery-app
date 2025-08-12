@@ -11,13 +11,11 @@ class AnalisisController extends Controller
     {
         $request->validate([
             'numeros' => 'required|array|min:1',
-            'numeros.*' => 'integer|min:0'
         ]);
 
         $analyzer = new LoteriaAnalyzer($request->numeros);
         $resultado = $analyzer->analizar();
 
-        return view('resultado', compact('resultado'));
+        return view('loterias.analize', compact('resultado'));
     }
-
 }
