@@ -9,13 +9,36 @@ use App\Models\Loteria;
 
 class AnalisisController extends Controller
 {
-    public function index($id) {
-        return(view ('analize.index', compact('id')));
+    public function index($id)
+    {
+        return (view('analize.index', compact('id')));
     }
 
-    public function probar_numero($id) {
+    public function probar_numero($id)
+    {
         $loteria = Loteria::findOrFail($id);
-        return (view ('analize.probar_numero', compact('loteria')));
+        return (view('analize.probar_numero', compact('loteria')));
+    }
+
+    private function results_analisis($lottery_id)
+    {
+        $lotteryResults = LotoLeidsa::where('lottery_id', $lottery_id)
+            ->orderBy('draw_date', 'desc')
+            ->get();
+
+        $resultsSet = [];
+
+        if ($lotteryResults->count() !== 0) {
+
+            foreach ($lotteryResults as $result) {
+                $analyzer = new LoteriaAnalyzer($result);
+                $resultsSet [] = $analyzer->analizar();
+            }
+
+            return $resultsSet;
+        } else {
+            return $resultsSet;
+        }
     }
 
     public function analizar(Request $request)
