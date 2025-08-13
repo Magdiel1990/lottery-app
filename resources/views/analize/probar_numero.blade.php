@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container my-4 form-container">
+    <div class="container form-container">
         <div class="justify-content-center text-center">
             <h3 class="mb-3">Probar tu Número</h3>
             <form id="loteriaForm" class="d-flex flex-column align-items-center">
