@@ -9,19 +9,6 @@
 
         <div class="collapse navbar-collapse" id="navbarLotoApp">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-          <!--      <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="bi bi-calendar-check"></i> Resultados
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="bi bi-graph-up"></i> Análisis
-                    </a>
-                </li>
-            -->
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="bi bi-cloud-arrow-down"></i> Importar Datos
