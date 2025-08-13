@@ -38,4 +38,5 @@ Route::prefix('loto')->name('loto.')->group(function() {
 
 Route::prefix('loterias/analize')->name('analize.')->group(function() {
     Route::get('/{id}', [AnalisisController::class,'index'])->name('index');
+    Route::get('/probar_numero/{loterias}', [AnalisisController::class,'probar_numero'])->name('probar_numero');
 });
