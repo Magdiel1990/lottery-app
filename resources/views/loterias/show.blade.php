@@ -17,7 +17,7 @@
 
     <!-- Botones de agregar, analizar y regresar -->
     <div class="d-flex gap-2">
-        <a href="{{  route('loteria.analizar', $loteria->id) }}" class="btn btn-icon btn-primary" title="Analizar">
+        <a href="{{  route('analize.index', $loteria->id) }}" class="btn btn-icon btn-primary" title="Analizar">
             <i class="bi bi-graph-up"></i>
         </a>
 

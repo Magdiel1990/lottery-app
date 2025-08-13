@@ -66,13 +66,6 @@ class LoteriaController extends Controller
         return redirect()->route('configuracion.index')->with('success', 'Lotería actualizada correctamente.');
     }
 
-    //Método de la vista para analizar loteria
-    public function analize ($id) {
-        $loteria = Loteria::findOrFail($id);
-
-        return view('loterias.analize', compact('loteria'));
-    }
-
     public function destroy(Loteria $loteria)
     {
         $loteria->delete();

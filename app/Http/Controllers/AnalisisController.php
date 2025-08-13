@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LotoLeidsa;
 use Illuminate\Http\Request;
 use App\Services\LoteriaAnalyzer;
 
 class AnalisisController extends Controller
-{
+{   
+    public function index($id) {
+        return(view('analize.index', compact('id')));
+    }
+
     public function analizar(Request $request)
     {
         $request->validate([

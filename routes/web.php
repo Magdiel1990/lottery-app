@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnalisisController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LotoLeidsaController;
@@ -23,7 +24,6 @@ Route::prefix('loteria')->name('loteria.')->group(function() {
     Route::get('/{id}', [LotoLeidsaController::class, 'show'])->name('show');
     Route::post('/', [LoteriaController::class, 'store'])->name('store');
     Route::get('/editar/{id}', [LoteriaController::class, 'edit'])->name('edit');
-    Route::get('/analizar/{id}', [LoteriaController::class, 'analize'])->name('analizar');
     Route::delete('/{loteria}', [LoteriaController::class, 'destroy'])->name('destroy');
     Route::put('/{id}', [LoteriaController::class, 'update'])->name('update');
 });
@@ -34,4 +34,8 @@ Route::prefix('loto')->name('loto.')->group(function() {
     Route::get("/editar/{id}", [LotoLeidsaController::class,"edit"])->name("editar");
     Route::put("/update/{id}", [LotoLeidsaController::class,"update"])->name("update");
     Route::delete("/delete/{id}", [LotoLeidsaController::class,"destroy"]) -> name("delete");
+});
+
+Route::prefix('loterias/analize')->name('analize.')->group(function() {
+    Route::get('/{id}', [AnalisisController::class,'index'])->name('index');
 });
