@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lottery_results', function (Blueprint $table) {
+        Schema::create('loterias', function (Blueprint $table) {
             $table->id();
-            $table->date('draw_date');
-            $table->json('numbers');
+            $table->string("nombre")->unique();
+            $table->text('descripcion')->nullable();
+            $table->unsignedBigInteger('total');
+            $table->unsignedBigInteger('maxValue');
+            $table->unsignedBigInteger('minValue');
             $table->timestamps();
-
-            $table -> unique([/*draw_date, */]);
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lottery_results');
+        Schema::dropIfExists('loterias');
     }
 };

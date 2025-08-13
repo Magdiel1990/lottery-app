@@ -37,11 +37,24 @@ h3 {
     margin-bottom: 0.5rem;
 }
 
+h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+h6 {
+    font-weight: 100;
+}
+
 /* Parrafos y texto normal */
 p {
     color: #333;
     font-size: 1rem;
     margin-bottom: 0.75rem;
+}
+
+span {
+    font-size: 1rem;
 }
 
 /* Links */
@@ -99,22 +112,166 @@ table th, table td {
 .btn-sm i {
     font-size: 1rem;
 }
-
-/* Estilos para el botón de agregar */
-#agregar_btn {
-    background-color: #0e0000; /* Rojo elegante */
-    color: rgb(246, 246, 250);
-    border-radius: 0.25rem;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease;
+/*Estilos de las bolas*/
+.bola {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #f3aa0c;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
 }
 
-/*estilo para el contenedor del contenido*/
-/*#content {
-    background: #fa0000;
-    background: radial-gradient(circle, rgba(250, 0, 0, 1) 1%, rgba(250, 238, 0, 1) 5%, rgba(250, 0, 112, 1) 11%, rgba(221, 10, 30, 1) 40%, rgba(0, 89, 255, 1) 100%);
-}*/
-thead th {
-    background-color: #0192fa;
-    color: #ff0000;
+.bola:hover {
+    transform: scale(1.1);
+}
+
+
+/* FOOTER */
+.footer-modern {
+    background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+    margin-top: 25%;
+}
+
+.footer-modern h4,
+.footer-modern h5 {
+    margin-bottom: 0.5rem;
+}
+
+.footer-modern .footer-desc {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+}
+
+.footer-modern .footer-links li {
+    margin-bottom: 0.4rem;
+}
+
+.footer-modern .footer-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-modern .footer-links a:hover {
+    color: #fff;
+    padding-left: 4px;
+}
+
+.footer-modern .footer-copy {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+footer hr {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/*Estilo de botones de agregar jugada*/
+.btn-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/*Carusel*/
+.card-item {
+    width: 20rem;
+    height: auto;
+    padding: 1rem;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 115, 0, 0.75) 0%,
+        rgba(255, 180, 0, 0.8) 35%,
+        rgba(255, 60, 0, 0.85) 70%,
+        rgba(180, 0, 60, 0.9) 100%
+    );
+    border: 1px solid white;
+}
+
+.card-item p, .card-item h5 {
+    color: rgb(255, 255, 255);
+}
+
+.card-item a {
+    margin-top: 15px;
+}
+
+#loteriaCarousel {
+    background-color: rgb(21, 182, 0);
+    background-image: url('/images/fondo_carrusel.png');
+    padding: 6rem 2rem;
+    box-shadow: 1px 2px 3px 1px #666;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    color: black;
+}
+/*Formulario para probar numero*/
+.form-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    margin-top: 4rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    max-width: 500px;
+}
+
+.form-container h3 {
+    color: #ff7300;
+    margin-bottom: 20px;
+}
+
+#numero[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#numero[type="text"]:focus {
+    border-color: #ff7300;
+}
+
+.pruebaBtn {
+    background: #ff7300;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.pruebaBtn:hover {
+    background: #e66200;
+}
+
+.resultado {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
 }
