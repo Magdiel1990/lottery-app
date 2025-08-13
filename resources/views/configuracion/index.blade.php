@@ -47,7 +47,7 @@
                     <button type="submit" class="btn btn-primary mx-2">
                         <i class="bi bi-save"></i> Guardar
                     </button>
-                    <a href="{{ url()->previous() }}" class="btn btn-secondary mx-2">
+                    <a href="{{ route('home') }}" class="btn btn-secondary mx-2">
                         <i class="bi bi-arrow-left-circle"></i> Regresar
                     </a>
                 </div>
