@@ -32,7 +32,7 @@
                 </div>
                 <div class="card-footer text-center">
                     <a href="{{ route('loteria.show', $loteria->id) }}" class="btn btn-primary w-100 mt-2">
-                        <i class="bi bi-graph-up"></i> Analizar
+                        Ver
                     </a>
                 </div>
             </div>
