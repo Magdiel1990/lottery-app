@@ -20,7 +20,7 @@ class AnalisisController extends Controller
         return (view('analize.probar_numero', compact('loteria')));
     }
 
-    private function results_algorithm($lottery_id)
+    protected function results_algorithm($lottery_id)
     {
         $lotteryResults = LotoLeidsa::where('lottery_id', $lottery_id)
             ->orderBy('draw_date', 'desc')
@@ -36,11 +36,23 @@ class AnalisisController extends Controller
         return $resultsSet;
     }
 
-    public function estadisticas($id)
+    public function estadisticas(Request $request, $id)
     {
-        $resultsSet = $this->results_algorithm($id);
+        // Configurar paginación (por defecto 10 resultados por página)
+        $perPage = $request->get('per_page', 10);
 
-        return (view('analize.estadisticas', compact('resultsSet')));
+        //Instancia de la clase hija
+        $results = new AnalisisControllerChild();
+        $results = $results -> results_algorithm($id, $perPage);
+
+        $resultsSet = $results ['resultsSet'];
+        $lotteryResults= $results ['lotteryResults'];
+
+        return view('analize.estadisticas', [
+            'lotteryResults' => $lotteryResults, // para links()
+            'resultsSet' => $resultsSet,         // para mostrar datos
+            'perPage' => $perPage
+        ]);
     }
     /*
     public function analizar(Request $request)
@@ -55,4 +67,21 @@ class AnalisisController extends Controller
         return view('loterias.analize', compact('resultado'));
     }
         */
+}
+
+class AnalisisControllerChild extends AnalisisController {
+    protected function results_algorithm($lottery_id, $perPage = null)
+    {
+        $lotteryResults = LotoLeidsa::where('lottery_id', $lottery_id)
+            ->orderBy('draw_date', 'desc')
+            ->paginate($perPage);
+
+       // Analizar solo los de la página actual
+        $resultsSet = $lotteryResults->map(function ($result) {
+            $analyzer = new LoteriaAnalyzer($result->numbers);
+            return $analyzer->analizar();
+        });
+
+        return ['resultsSet' => $resultsSet, 'lotteryResults'=>$lotteryResults];
+    }
 }
