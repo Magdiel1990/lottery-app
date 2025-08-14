@@ -29,18 +29,17 @@ class AnalisisController extends Controller
         $resultsSet = [];
 
         foreach ($lotteryResults as $result) {
-            //$numeros = json_decode($result->numbers, true); 
-          //  $numeros = explode(',', $result->numbers);
-
             $analyzer = new LoteriaAnalyzer($result->numbers);
             $resultsSet[] = $analyzer->analizar();
         }
 
-        return $resultsSet;    
+        return $resultsSet;
     }
 
     public function estadisticas($id) {
         $resultsSet = $this->results_algorithm($id);
+
+
 
         return (view('analize.estadisticas', compact('resultsSet')));
     }

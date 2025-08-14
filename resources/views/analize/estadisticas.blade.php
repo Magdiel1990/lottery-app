@@ -1,9 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container">
+        <h2 class="my-2 text-center">Loterías Disponibles</h2>
 
-    @foreach ($resultsSet as $i)
-        @dump($i)
-    @endforeach
+        <div class="row g-4 my-2">
+            @forelse($resultsSet as $result)
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <table class="table table-bordered table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Categoría</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($result as $categoria => $valor)
+                                        <tr>
+                                            <td>{{ ucfirst($categoria) }}</td>
+                                            <td>{{ $valor }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
-@endsection
+            @empty
+                <div class="d-flex justify-content-center">
+                    <div class="alert alert-warning text-center shadow-sm w-100" style="max-width: 600px;" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        No hay jugadas disponibles
+                    </div>
+                </div>
+            @endforelse
+        </div>
+    @endsection
