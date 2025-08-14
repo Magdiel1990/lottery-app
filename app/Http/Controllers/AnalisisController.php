@@ -39,7 +39,7 @@ class AnalisisController extends Controller
     public function estadisticas(Request $request, $id)
     {
         // Configurar paginación (por defecto 10 resultados por página)
-        $perPage = $request->get('per_page', 10);
+        $perPage = $request->get('per_page', 6);
 
         //Instancia de la clase hija
         $results = new AnalisisControllerChild();
