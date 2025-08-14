@@ -29,12 +29,16 @@ class LoteriaAnalyzer
 
     private function contarPares(): int
     {
-        return count(array_filter($this->numeros, fn($n) => $n % 2 === 0));
+        $porcentaje = round(100 * count(array_filter($this->numeros, fn($n) => $n % 2 === 0)) / count($this->numeros), 2);
+
+        return $porcentaje;
     }
 
     private function contarImpares(): int
     {
-        return count(array_filter($this->numeros, fn($n) => $n % 2 !== 0));
+        $porcentaje = round(100 * count(array_filter($this->numeros, fn($n) => $n % 2 !== 0)) / count($this->numeros), 2);
+
+        return $porcentaje;
     }
 
     private function sumar(): int

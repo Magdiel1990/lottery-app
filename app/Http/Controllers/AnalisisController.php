@@ -36,14 +36,13 @@ class AnalisisController extends Controller
         return $resultsSet;
     }
 
-    public function estadisticas($id) {
+    public function estadisticas($id)
+    {
         $resultsSet = $this->results_algorithm($id);
-
-
 
         return (view('analize.estadisticas', compact('resultsSet')));
     }
-/*
+    /*
     public function analizar(Request $request)
     {
         $request->validate([
