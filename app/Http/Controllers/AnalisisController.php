@@ -29,7 +29,7 @@ class AnalisisController extends Controller
         $resultsSet = [];
 
         foreach ($lotteryResults as $result) {
-            $analyzer = new LoteriaAnalyzer($result->numbers);
+            $analyzer = new LoteriaAnalyzer($result->numbers, $result->draw_date);
             $resultsSet[] = $analyzer->analizar();
         }
 
@@ -78,7 +78,7 @@ class AnalisisControllerChild extends AnalisisController {
 
        // Analizar solo los de la página actual
         $resultsSet = $lotteryResults->map(function ($result) {
-            $analyzer = new LoteriaAnalyzer($result->numbers);
+            $analyzer = new LoteriaAnalyzer($result->numbers, $result->draw_date);
             return $analyzer->analizar();
         });
 

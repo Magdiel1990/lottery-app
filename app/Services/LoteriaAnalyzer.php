@@ -5,11 +5,12 @@ namespace App\Services;
 class LoteriaAnalyzer
 {
     protected array $numeros;
+    protected $fecha;
 
-    public function __construct(array $numeros)
+    public function __construct(array $numeros, $fecha)
     {
-        //Convierto los numeros del arreglo a enteros
         $this->numeros = $numeros;
+        $this->fecha = $fecha->format('d-M-Y');
     }
 
     public function analizar(): array
@@ -24,6 +25,7 @@ class LoteriaAnalyzer
             'maximo' => $this->maximo(),
             'minimo' => $this->minimo(),
             'rango' => $this->rango(),
+            'fecha' => $this->fecha,
         ];
     }
 

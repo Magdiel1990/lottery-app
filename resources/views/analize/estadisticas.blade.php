@@ -24,7 +24,7 @@
                         <div class="card-body">
                             <table class="table table-bordered table-sm">
                                 <thead>
-                                    <tr> # {{ $i}} </tr>
+                                    <tr> # {{ $i}}</tr>
                                     <tr>
                                         <th>Categoría</th>
                                         <th>Valor</th>
