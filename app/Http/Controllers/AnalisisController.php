@@ -20,7 +20,7 @@ class AnalisisController extends Controller
         return (view('analize.probar_numero', compact('loteria')));
     }
 
-    private function results_analisis($lottery_id)
+    private function results_algorithm($lottery_id)
     {
         $lotteryResults = LotoLeidsa::where('lottery_id', $lottery_id)
             ->orderBy('draw_date', 'desc')
@@ -29,11 +29,20 @@ class AnalisisController extends Controller
         $resultsSet = [];
 
         foreach ($lotteryResults as $result) {
-            $analyzer = new LoteriaAnalyzer($result);
-            $resultsSet [] = $analyzer->analizar();
+            //$numeros = json_decode($result->numbers, true); 
+          //  $numeros = explode(',', $result->numbers);
+
+            $analyzer = new LoteriaAnalyzer($result->numbers);
+            $resultsSet[] = $analyzer->analizar();
         }
 
         return $resultsSet;    
+    }
+
+    public function estadisticas($id) {
+        $resultsSet = $this->results_algorithm($id);
+
+        return (view('analize.estadisticas', compact('resultsSet')));
     }
 
     public function analizar(Request $request)

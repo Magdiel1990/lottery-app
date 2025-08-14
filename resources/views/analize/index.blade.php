@@ -30,7 +30,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Estadísticas en Tiempo Real</h5>
                         <p class="card-text">Monitorea los datos en vivo de esta lotería.</p>
-                        <a href="#" class="btn btn-primary">Entrar</a>
+                        <a href="{{ route('analize.estadisticas', $id) }}" class="btn btn-primary">Entrar</a>
                     </div>
                 </div>
                 <div class="card text-center shadow card-item">
