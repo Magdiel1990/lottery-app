@@ -51,7 +51,7 @@ class AnalisisController extends Controller
         return view('analize.estadisticas', [
             'lotteryResults' => $lotteryResults, // para links()
             'resultsSet' => $resultsSet,         // para mostrar datos
-            'perPage' => $perPage
+            'perPage' => $perPage,
         ]);
     }
     /*

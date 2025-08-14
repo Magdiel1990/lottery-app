@@ -9,7 +9,7 @@ class LoteriaAnalyzer
     public function __construct(array $numeros)
     {
         //Convierto los numeros del arreglo a enteros
-        $this->numeros = array_map('intval',$numeros);
+        $this->numeros = $numeros;
     }
 
     public function analizar(): array
