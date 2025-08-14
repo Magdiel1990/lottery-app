@@ -28,17 +28,12 @@ class AnalisisController extends Controller
 
         $resultsSet = [];
 
-        if ($lotteryResults->count() !== 0) {
-
-            foreach ($lotteryResults as $result) {
-                $analyzer = new LoteriaAnalyzer($result);
-                $resultsSet [] = $analyzer->analizar();
-            }
-
-            return $resultsSet;
-        } else {
-            return $resultsSet;
+        foreach ($lotteryResults as $result) {
+            $analyzer = new LoteriaAnalyzer($result);
+            $resultsSet [] = $analyzer->analizar();
         }
+
+        return $resultsSet;    
     }
 
     public function analizar(Request $request)
