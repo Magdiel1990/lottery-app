@@ -15,8 +15,8 @@ class LoteriaAnalyzer
     public function analizar(): array
     {
         return [
-            'pares' => $this->contarPares(),
-            'impares' => $this->contarImpares(),
+            'pares (%)' => $this->contarPares(),
+            'impares (%)' => $this->contarImpares(),
             'suma_total' => $this->sumar(),
             'producto_total' => $this->product(),
             'promedio' => $this->promedio(),
@@ -27,16 +27,16 @@ class LoteriaAnalyzer
         ];
     }
 
-    private function contarPares(): int
+    private function contarPares(): float
     {
-        $porcentaje = round(100 * count(array_filter($this->numeros, fn($n) => $n % 2 === 0)) / count($this->numeros), 2);
+        $porcentaje = round(100 * count(array_filter($this->numeros, fn($n) => $n % 2 === 0)) / count($this->numeros), 1);
 
         return $porcentaje;
     }
 
-    private function contarImpares(): int
+    private function contarImpares(): float
     {
-        $porcentaje = round(100 * count(array_filter($this->numeros, fn($n) => $n % 2 !== 0)) / count($this->numeros), 2);
+        $porcentaje = round(100 * count(array_filter($this->numeros, fn($n) => $n % 2 !== 0)) / count($this->numeros), 1);
 
         return $porcentaje;
     }
