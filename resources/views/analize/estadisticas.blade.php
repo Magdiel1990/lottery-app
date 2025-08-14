@@ -19,7 +19,7 @@
         <div class="row g-4 my-2">
             @php $i = 1; @endphp
             @forelse($resultsSet as $result)
-                <div class="col">
+                <div class="col-md-auto col-sm-auto col-lg-4">
                     <div class="card h-100">
                         <div class="card-body">
                             <table class="table table-bordered table-sm">
@@ -54,7 +54,7 @@
         </div>
 
         <!--Paginación-->
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mt-4">
             {{ $lotteryResults->appends(['per_page' => $perPage])->links('pagination::bootstrap-4') }}
         </div>
     </div>
