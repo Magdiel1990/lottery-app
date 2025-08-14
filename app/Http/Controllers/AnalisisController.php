@@ -43,7 +43,7 @@ class AnalisisController extends Controller
 
         return (view('analize.estadisticas', compact('resultsSet')));
     }
-
+/*
     public function analizar(Request $request)
     {
         $request->validate([
@@ -55,4 +55,5 @@ class AnalisisController extends Controller
 
         return view('loterias.analize', compact('resultado'));
     }
+        */
 }
