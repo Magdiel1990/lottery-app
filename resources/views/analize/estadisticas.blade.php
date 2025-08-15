@@ -7,7 +7,7 @@
         <form method="GET" class="mb-3">
             <label for="per_page">Ver:</label>
             <select name="per_page" id="per_page" onchange="this.form.submit()">
-                @foreach([6, 12, 24, 48] as $size)
+                @foreach([6, 12, 18] as $size)
                     <option value="{{ $size }}" {{ $perPage == $size ? 'selected' : '' }}>{{ $size }}</option>
                 @endforeach
             </select>
@@ -17,7 +17,7 @@
         <h2 class="my-2 text-center">Jugadas</h2>
 
         <div class="row g-4 my-2">
-            @php $i = 1; @endphp
+            @php $i = $resultsSet->count(); @endphp
             @forelse($resultsSet as $result)
                 <div class="col-md-auto col-sm-auto col-lg-4">
                     <div class="card h-100">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                @php $i++; @endphp
+                @php $i--; @endphp
             @empty
                 <div class="d-flex justify-content-center">
                     <div class="alert alert-warning text-center shadow-sm w-100" style="max-width: 600px;" role="alert">
