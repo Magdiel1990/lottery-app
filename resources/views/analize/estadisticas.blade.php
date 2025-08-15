@@ -58,8 +58,4 @@
             {{ $lotteryResults->appends(['per_page' => $perPage])->links('pagination::bootstrap-4') }}
         </div>
     </div>
-
-    <div>
-        @dump($resultCollection);
-    </div>
 @endsection
