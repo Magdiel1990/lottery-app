@@ -7,21 +7,23 @@ use Illuminate\Http\Request;
 use App\Services\LoteriaAnalyzer;
 use App\Models\Loteria;
 
+use function PHPSTORM_META\type;
+
 class AnalisisController extends Controller
 {
-    public function index($id)
+    public function index(int $id)
     {
         return (view('analize.index', compact('id')));
     }
 
-    public function probar_numero($id)
+    public function probar_numero(int $id)
     {
         $loteria = Loteria::findOrFail($id);
         return (view('analize.probar_numero', compact('loteria')));
     }
 
 
-    protected function results_algorithm($lottery_id)
+    protected function results_algorithm(int $lottery_id)
     {
         $lotteryResults = LotoLeidsa::where('lottery_id', $lottery_id)
             ->orderBy('draw_date', 'desc')
@@ -37,7 +39,7 @@ class AnalisisController extends Controller
         return $resultsSet;
     }
 
-    private function results_algorithm_collection($lottery_id)
+    private function results_algorithm_collection(int $lottery_id)
     {
         $resultSet = $this->results_algorithm($lottery_id);
 
@@ -56,8 +58,45 @@ class AnalisisController extends Controller
 
         return $resultCollection;
     }
+    //Devuelve los valores del arreglo del mas frecuente al menos frecuente
 
-    public function estadisticas(Request $request, $id)
+    private function contarRepeticionesOrdenado(array $arreglo)
+{
+    // Convertir todos los elementos a string (o int)
+    $arreglo = array_map(function ($v) {
+        return is_float($v) ? (string)$v : $v;
+    }, $arreglo);
+
+    $conteo = array_count_values($arreglo);
+    arsort($conteo);
+    return $conteo;
+}
+
+    //Devuelve los {{ $filter }} valores mas frecuentes
+    private function valoresMasFrecuentes(array $arreglo, int $filter = 1): array
+    {
+        $conteo = $this->contarRepeticionesOrdenado ($arreglo);
+        $valoresMasFrecuentes = array_slice($conteo, 0, $filter);
+
+        return $valoresMasFrecuentes;
+    }
+
+    private function contarRepeticiones(int $filter, int $lottery_id)
+    {
+        $results = $this->results_algorithm_collection($lottery_id);
+
+        $masRepetidasPorCategoria = [];
+        //Determina los $filter valores mas repetidos
+        foreach ($results as $categoria => $valor) {
+            $nuevoArreglo = [];
+            $nuevoArreglo [$categoria] = $this->valoresMasFrecuentes($valor, $filter);
+            $masRepetidasPorCategoria [] =  $nuevoArreglo; //["suma"=>[34,20]]
+        }
+
+        return $masRepetidasPorCategoria;
+    }
+
+    public function estadisticas(Request $request, int $id)
     {
         // Configurar paginación (por defecto 10 resultados por página)
         $perPage = $request->get('per_page', 6);
@@ -92,7 +131,7 @@ class AnalisisController extends Controller
 
 class AnalisisControllerChild extends AnalisisController
 {
-    protected function results_algorithm($lottery_id, $perPage = null)
+    protected function results_algorithm(int $lottery_id, int $perPage = 6)
     {
         $lotteryResults = LotoLeidsa::where('lottery_id', $lottery_id)
             ->orderBy('draw_date', 'desc')
