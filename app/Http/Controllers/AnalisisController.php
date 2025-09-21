@@ -72,7 +72,7 @@ class AnalisisController extends Controller
     return $conteo;
 }
 
-    //Devuelve los {{ $filter }} valores mas frecuentes
+    //Devuelve los  $filter  valores mas frecuentes
     private function valoresMasFrecuentes(array $arreglo, int $filter = 1): array
     {
         $conteo = $this->contarRepeticionesOrdenado ($arreglo);
